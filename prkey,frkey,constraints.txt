@@ -1,0 +1,250 @@
+DATE:02.08.2026
+Enter user-name: A228@db2021
+Enter password:
+
+Connected to:
+Oracle Database 11g Release 11.2.0.1.0 - Production
+
+SQL> desc student
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REG_NO                                             VARCHAR2(7)
+ NAME                                               CHAR(10)
+ COURSE                                             CHAR(10)
+ DOB                                                DATE
+ YEAR                                               NUMBER(2)
+
+SQL> create table prstudent(
+  2  regno varchar2(7) Primary Key,
+  3  name char(10),
+  4  course char(10),
+  5  dob Date,
+  6  Year number(2));
+
+Table created.
+
+SQL> desc prstudent
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                     NOT NULL VARCHAR2(7)
+ NAME                                               CHAR(10)
+ COURSE                                             CHAR(10)
+ DOB                                                DATE
+ YEAR                                               NUMBER(2)
+
+SQL> desc prstudent
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                     NOT NULL VARCHAR2(7)
+ NAME                                               CHAR(10)
+ COURSE                                             CHAR(10)
+ DOB                                                DATE
+ YEAR                                               NUMBER(2)
+
+SQL> CREATE TABLE prstudent2(
+  2      regno VARCHAR2(7) CONSTRAINT prstudent_pkey PRIMARY KEY,
+  3      name CHAR(10),
+  4      course CHAR(10),
+  5      dob DATE,
+  6      year NUMBER(2)
+  7  );
+
+Table created.
+
+SQL> desc prstudent2
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                     NOT NULL VARCHAR2(7)
+ NAME                                               CHAR(10)
+ COURSE                                             CHAR(10)
+ DOB                                                DATE
+ YEAR                                               NUMBER(2)
+
+SQL> CREATE TABLE prstudent(
+  2      regno VARCHAR2(7),
+  3      name CHAR(10),
+  4      course CHAR(10),
+  5      dob DATE,
+  6      year NUMBER(2),
+  7      CONSTRAINT prstudent_pkey PRIMARY KEY(regno)
+  8
+SQL> DROP TABLE prstudent;
+
+Table dropped.
+
+SQL> CREATE TABLE prstudent(
+  2      regno VARCHAR2(7),
+  3      name CHAR(10),
+  4      course CHAR(10),
+  5      dob DATE,
+  6      year NUMBER(2),
+  7      CONSTRAINT prstudent_pk PRIMARY KEY(regno)
+  8  );
+
+Table created.
+
+SQL> desc prstudent
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                     NOT NULL VARCHAR2(7)
+ NAME                                               CHAR(10)
+ COURSE                                             CHAR(10)
+ DOB                                                DATE
+ YEAR                                               NUMBER(2)
+
+
+
+SQL> SELECT table_name
+  2  FROM user_tables;
+
+TABLE_NAME
+------------------------------
+STUDENT2
+STUDENT1
+STUDENT_DETAILS
+EMPLOYEE
+EMPLOYEE2
+STUDENT
+STUDENT5
+STUDENT6
+STUDENT8
+STUDENT9
+PRSTUDENT2
+
+TABLE_NAME
+------------------------------
+PRSTUDENT
+
+12 rows selected.
+
+SQL> CREATE TABLE Dept
+  2  (
+  3      Deptno NUMBER(2) PRIMARY KEY,
+  4      Dname VARCHAR2(20)
+  5  );
+
+Table created.
+
+SQL> CREATE TABLE FrStudent
+  2  (
+  3      Rollno NUMBER(4),
+  4      Sname VARCHAR2(20),
+  5      Deptno NUMBER(2)
+  6          CONSTRAINT Stud_Fkey
+  7          REFERENCES Dept(Deptno),
+  8      Marks NUMBER(5)
+  9  );
+
+Table created.
+
+SQL> DESC FrStudent;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ROLLNO                                             NUMBER(4)
+ SNAME                                              VARCHAR2(20)
+ DEPTNO                                             NUMBER(2)
+ MARKS                                              NUMBER(5)
+
+SQL> DROP TABLE FrStudent CASCADE CONSTRAINTS;
+
+Table dropped.
+
+SQL> CREATE TABLE FrStudent2
+  2  (
+  3      Rollno NUMBER(4),
+  4      Sname VARCHAR2(20),
+  5      Deptno NUMBER(2),
+  6      Marks NUMBER(5),
+  7      CONSTRAINT Stud_Fkey
+  8          FOREIGN KEY (Deptno)
+  9          REFERENCES Dept(Deptno)
+ 10  );
+
+Table created.
+
+SQL> desc Frstudent2
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ROLLNO                                             NUMBER(4)
+ SNAME                                              VARCHAR2(20)
+ DEPTNO                                             NUMBER(2)
+ MARKS                                              NUMBER(5)
+
+SQL> SELECT constraint_name, constraint_type
+  2  FROM user_constraints
+  3  WHERE table_name = 'FRSTUDENT2';
+
+CONSTRAINT_NAME                C
+------------------------------ -
+STUD_FKEY                      R
+
+CONSTRAINTS:
+
+SQL> CREATE TABLE FrStudent3
+  2  (
+  3      Rollno NUMBER(4),
+  4      Sname VARCHAR2(20),
+  5      Marks NUMBER(5)
+  6          CONSTRAINT stud_marks_ck
+  7          CHECK (Marks >= 35 AND Marks <= 100),
+  8      Deptno NUMBER(2)
+  9  );
+
+Table created.
+
+SQL> desc Frstudent3
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ROLLNO                                             NUMBER(4)
+ SNAME                                              VARCHAR2(20)
+ MARKS                                              NUMBER(5)
+ DEPTNO                                             NUMBER(2)
+
+SQL> INSERT INTO FrStudent3 VALUES (101, 'Monish', 85, 10);
+
+1 row created.
+
+SQL> desc Frstudent3
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ROLLNO                                             NUMBER(4)
+ SNAME                                              VARCHAR2(20)
+ MARKS                                              NUMBER(5)
+ DEPTNO                                             NUMBER(2)
+
+SQL> SELECT * FROM FrStudent3;
+
+    ROLLNO SNAME                     MARKS     DEPTNO
+---------- -------------------- ---------- ----------
+       101 Monish                       85         10
+
+
+SQL> create table dept1(
+  2  deptid number(2) primary key,
+  3  deptname varchar(20) NOT NULL);
+
+Table created.
+
+CONSTRAINTS IN ONE TABLE:
+
+SQL> create table frstudent4
+  2  (
+  3  regno varchar2(10) PRIMARY KEY,
+  4  name varchar2(20) NOT NULL,
+  5  gender char default 'M',
+  6  age number check (age <100),
+  7  email varchar(15) unique,
+  8  Deptno number(5) references Dept(Deptno)
+  9  );
+
+Table created.
+
+SQL> desc frstudent4
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REGNO                                     NOT NULL VARCHAR2(10)
+ NAME                                      NOT NULL VARCHAR2(20)
+ GENDER                                             CHAR(1)
+ AGE                                                NUMBER
+ EMAIL                                              VARCHAR2(15)
+ DEPTNO                                             NUMBER(5)
