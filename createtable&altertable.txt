@@ -1,0 +1,86 @@
+SQL*Plus: Release 11.2.0.1.0 Production on Mon Jul 27 09:45:53 2026
+
+Copyright (c) 1982, 2010, Oracle.  All rights reserved.
+
+Enter user-name: A228@db2021
+Enter password:
+
+Connected to:
+Oracle Database 11g Release 11.2.0.1.0 - Production
+
+SQL> create table student(
+  2  reg_no varchar(10),
+  3  name char(10),
+  4  course char(10),
+  5  dob date,
+  6  year number(2)
+  7  );
+
+Table created.
+
+SQL> desc student
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REG_NO                                             VARCHAR2(10)
+ NAME                                               CHAR(10)
+ COURSE                                             CHAR(10)
+ DOB                                                DATE
+ YEAR                                               NUMBER(2)
+
+SQL> create table student2 as select* from student;
+create table student2 as select* from student
+             *
+ERROR at line 1:
+ORA-00955: name is already used by an existing object
+
+
+SQL> create table student5 as select* from student;
+
+Table created.
+
+SQL> desc student5
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REG_NO                                             VARCHAR2(10)
+ NAME                                               CHAR(10)
+ COURSE                                             CHAR(10)
+ DOB                                                DATE
+ YEAR                                               NUMBER(2)
+
+SQL> create table student6 as select reg_no,name,year from student;
+
+Table created.
+
+SQL> desc student6
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REG_NO                                             VARCHAR2(10)
+ NAME                                               CHAR(10)
+ YEAR                                               NUMBER(2)
+
+SQL> insert into student values ('A228','Monish','cse','31-mar-07',3);
+
+1 row created.
+
+SQL> select*from student;
+
+REG_NO     NAME       COURSE     DOB             YEAR
+---------- ---------- ---------- --------- ----------
+A228       Monish     cse        31-MAR-07          3
+
+SQL> create table student8 as select* from student where 3>5;
+
+Table created.
+
+SQL> select*from student8;
+
+no rows selected
+
+SQL> desc student8;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ REG_NO                                             VARCHAR2(10)
+ NAME                                               CHAR(10)
+ COURSE                                             CHAR(10)
+ DOB                                                DATE
+ YEAR                                               NUMBER(2)
