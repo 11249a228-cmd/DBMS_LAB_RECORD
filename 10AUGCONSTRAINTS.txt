@@ -1,0 +1,178 @@
+DATE:10.8.26
+CREATE A TABLE WITHOUT CONSTRAINT AND ADD ALL CONSTRAINTS USING ALTER COMMAND:
+
+SQL> desc Frstudent5
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ROLLNO                                             NUMBER(4)
+ SNAME                                              VARCHAR2(20)
+ GENDER                                             CHAR(1)
+ AGE                                                NUMBER(3)
+ EMAIL                                              VARCHAR2(30)
+ DEPTNO                                             NUMBER(5)
+ MARKS                                              NUMBER(5)
+
+SQL> INSERT INTO Frstudent5
+  2  VALUES (228,'monish','M',19,'monishmsm2128@gmail.com',4,95);
+
+1 row created.
+
+SQL> desc Frstudent5
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ROLLNO                                             NUMBER(4)
+ SNAME                                              VARCHAR2(20)
+ GENDER                                             CHAR(1)
+ AGE                                                NUMBER(3)
+ EMAIL                                              VARCHAR2(30)
+ DEPTNO                                             NUMBER(5)
+ MARKS                                              NUMBER(5)
+
+SQL> SELECT * FROM Frstudent5
+  2
+SQL> SELECT * FROM Frstudent5;
+
+    ROLLNO SNAME                G        AGE EMAIL
+---------- -------------------- - ---------- ------------------------------
+    DEPTNO      MARKS
+---------- ----------
+       228 monish               M         19 monishmsm2128@gmail.com
+         4         95
+
+
+SQL> ALTER TABLE FrStudent5
+  2  ADD CONSTRAINT pk_frstudent5
+  3  PRIMARY KEY (Rollno);
+
+Table altered.
+
+SQL> desc Frstudent5
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ROLLNO                                    NOT NULL NUMBER(4)
+ SNAME                                              VARCHAR2(20)
+ GENDER                                             CHAR(1)
+ AGE                                                NUMBER(3)
+ EMAIL                                              VARCHAR2(30)
+ DEPTNO                                             NUMBER(5)
+ MARKS                                              NUMBER(5)
+
+SQL> SELECT * FROM Frstudent5;
+
+    ROLLNO SNAME                G        AGE EMAIL
+---------- -------------------- - ---------- ------------------------------
+    DEPTNO      MARKS
+---------- ----------
+       228 monish               M         19 monishmsm2128@gmail.com
+         4         95
+
+Table altered.
+
+SQL> DESC Frstudent5
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ROLLNO                                    NOT NULL NUMBER(4)
+ SNAME                                     NOT NULL VARCHAR2(20)
+ GENDER                                             CHAR(1)
+ AGE                                                NUMBER(3)
+ EMAIL                                              VARCHAR2(30)
+ DEPTNO                                             NUMBER(5)
+ MARKS                                              NUMBER(5)
+
+SQL> ALTER TABLE FrStudent5
+  2  ADD CONSTRAINT uk_frstudent5_email
+  3  UNIQUE (Email);
+
+Table altered.
+
+SQL> desc Frstudent5;
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ROLLNO                                    NOT NULL NUMBER(4)
+ SNAME                                     NOT NULL VARCHAR2(20)
+ GENDER                                             CHAR(1)
+ AGE                                                NUMBER(3)
+ EMAIL                                              VARCHAR2(30)
+ DEPTNO                                             NUMBER(5)
+ MARKS                                              NUMBER(5)
+
+SQL> ALTER TABLE FrStudent5
+  2  ADD CONSTRAINT ck_frstudent5_marks
+  3  CHECK (Marks >= 35 AND Marks <= 100);
+
+Table altered.
+
+SQL> desc frstudent5
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ROLLNO                                    NOT NULL NUMBER(4)
+ SNAME                                     NOT NULL VARCHAR2(20)
+ GENDER                                             CHAR(1)
+ AGE                                                NUMBER(3)
+ EMAIL                                              VARCHAR2(30)
+ DEPTNO                                             NUMBER(5)
+ MARKS                                              NUMBER(5)
+
+SQL> ALTER TABLE FrStudent5
+  2  ADD CONSTRAINT ck_frstudent5_age
+  3  CHECK (Age < 100);
+
+Table altered.
+
+SQL> desc frstudent5
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ROLLNO                                    NOT NULL NUMBER(4)
+ SNAME                                     NOT NULL VARCHAR2(20)
+ GENDER                                             CHAR(1)
+ AGE                                                NUMBER(3)
+ EMAIL                                              VARCHAR2(30)
+ DEPTNO                                             NUMBER(5)
+ MARKS                                              NUMBER(5)
+
+SQL> SELECT * FROM FrStudent5;
+
+    ROLLNO SNAME                G        AGE EMAIL
+---------- -------------------- - ---------- ------------------------------
+    DEPTNO      MARKS
+---------- ----------
+       228 monish               M         19 monishmsm2128@gmail.com
+         4         95
+
+
+SQL> SELECT * FROM Dept;
+
+no rows selected
+
+SQL> INSERT INTO Dept VALUES (10, 'CSE');
+
+1 row created.
+
+SQL> INSERT INTO Dept VALUES (4, 'CSE');
+
+1 row created.
+
+SQL> SELECT * FROM Dept;
+
+    DEPTNO DNAME
+---------- --------------------
+        10 CSE
+         4 CSE
+
+SQL> ALTER TABLE FrStudent5
+  2  ADD CONSTRAINT fk_frstudent5_dept
+  3  FOREIGN KEY (Deptno)
+  4  REFERENCES Dept(Deptno);
+
+Table altered.
+
+SQL> desc frstudent5
+ Name                                      Null?    Type
+ ----------------------------------------- -------- ----------------------------
+ ROLLNO                                    NOT NULL NUMBER(4)
+ SNAME                                     NOT NULL VARCHAR2(20)
+ GENDER                                             CHAR(1)
+ AGE                                                NUMBER(3)
+ EMAIL                                              VARCHAR2(30)
+ DEPTNO                                             NUMBER(5)
+ MARKS                                              NUMBER(5)
