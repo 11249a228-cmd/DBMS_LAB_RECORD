@@ -49,7 +49,7 @@ SQL> select*from student;
 
 REG_NO     NAME       COURSE     DOB             YEAR
 ---------- ---------- ---------- --------- ----------
-A077       samhi      cse        16-JUN-07          3
+A228       monish      cse        31-MAR-07          3
 
 SQL> insert into student (reg_no,name) values ('A01','ash');
 
@@ -59,8 +59,8 @@ SQL> select*from student;
 
 REG_NO     NAME       COURSE     DOB             YEAR
 ---------- ---------- ---------- --------- ----------
-A077       samhi      cse        16-JUN-07          3
-A01        ash
+A228       monish      cse        31-MAR-07          3
+A01        PRAMODH
 
 SQL> create table student6 as select* from student where 3>5;
 
