@@ -1,4 +1,4 @@
-Enter user-name: A077@db2021
+Enter user-name: A228@db2021
 Enter password:
 
 Connected to:
@@ -24,11 +24,11 @@ SQL> SELECT* FROM student8;
 
      STUID NAME                 REG_NO     DEPARTMENT
 ---------- -------------------- ---------- ----------
-         1 samhi                11249a077  cse
-         2 sindh                098        cse
-         3 prasu                115        ece
-         4 likki                075        mech
-         5 shiv                 100        eee
+         1 monish                11249a228  cse
+         2 pramodh               206        cse
+         3 prithi               123        ece
+         4 likhit               232       mech
+         5 mahesh              193       eee
 
 SQL> SELECT* FROM student9;
 
@@ -70,11 +70,11 @@ SQL> SELECT*FROM student8;
 
      STUID NAME                 REG_NO     DEPARTMENT
 ---------- -------------------- ---------- ----------
-         1 samhi                11249a077  cse
-         2 sindh                098        cse
-         3 prasu                115        ece
-         4 likki                075        mech
-         5 shiv                 100        eee
+         1 monish                11249a228  cse
+         2 pramodh               206        cse
+         3 prithi               123        ece
+         4 likhit               232       mech
+         5 mahesh              193       eee
 
 
 SQL> insert into student8 (stuid,name,reg_no) values(06,'lakshman','00001');
@@ -85,13 +85,12 @@ SQL> SELECT*FROM student8;
 
      STUID NAME                 REG_NO     DEPARTMENT
 ---------- -------------------- ---------- ----------
-         1 samhi                11249a077  cse
-         2 sindh                098        cse
-         3 prasu                115        ece
-         4 likki                075        mech
-         5 shiv                 100        eee
-         6 lakshman             00001      CSE
-
+        1 monish                11249a228  cse
+         2 pramodh               206        cse
+         3 prithi               123        ece
+         4 likhit               232       mech
+         5 mahesh              193       eee
+         6 SAm                  341      mbbs
 6 rows selected.
 
 SQL> desc stu1;
@@ -213,31 +212,31 @@ no rows selected
 
 SQL> insert into student10 values (&stu_id,'&stu_name',&age,'&gender','&email',&dept_id);
 Enter value for stu_id: 001
-Enter value for stu_name: samhi
+Enter value for stu_name: monish
 Enter value for age: 19
-Enter value for gender: f
-Enter value for email: samhi@gmail.com
+Enter value for gender: m
+Enter value for email: monishmsm2128@gmail.com
 Enter value for dept_id: 01
 old   1: insert into student10 values (&stu_id,'&stu_name',&age,'&email',&dept_id)
-new   1: insert into student10 values (001,'samhi',19,'samhi@gmail.com',01)
+new   1: insert into student10 values (001,'monish',19,'monishmsm2128@gmail.com',01)
 
 1 row created.
 
 SQL> /
 Enter value for stu_id: 002
-Enter value for stu_name: sindh
+Enter value for stu_name: pramodh
 Enter value for age: 19
-Enter value for gender: f
-Enter value for email: sindhu@gmail.com
+Enter value for gender: m
+Enter value for email: pramodh@gmail.com
 Enter value for dept_id: 02
 old   1: insert into student10 values (&stu_id,'&stu_name',&age,'&email',&dept_id)
-new   1: insert into student10 values (002,'sindh',19,'sindhu@gmail.com',02)
+new   1: insert into student10 values (002,'pramodh',19,'prmodh@gmail.com',02)
 
 1 row created.
 
 SQL> select*from student10;
 
-    STU_ID STU_NAME               AGE G EMAIL                   DEPT_ID
----------- --------------- ---------- - -------------------- ----------
-         1 samhi                   19 f samhi@gmail.com               1
-         2 sindh                   19 f sindhu@gmail.com              2
+    STU_ID STU_NAME               AGE G EMAIL                       DEPT_ID
+---------- --------------- ---------- - --------------------        ----------
+         1 monish                   19 m monishmsm2128@gmail.com               1
+         2 pramodh                  19 m pramodh@gmail.com                     2
