@@ -96,19 +96,19 @@ SQL> select*from dept;
          2 ece
          3 mech
 
-SQL> insert into college values(001,'samhi',19,'samhi@gmail.com','cse',1);
+SQL> insert into college values(001,'monish',19,'monish@gmail.com','cse',1);
 
 1 row created.
 
-SQL> insert into college values(002,'grishma',20,'grish@gmail.com','ece',2);
+SQL> insert into college values(002,'pramodh',20,'pramodh@gmail.com','ece',2);
 
 1 row created.
 
-SQL> insert into college values(003,'yamini',20,'yamm@gmail.com','mech',3);
+SQL> insert into college values(003,'likith',20,'liktih@gmail.com','mech',3);
 
 1 row created.
 
-SQL> insert into college values(004,'navi',19,'navii@gmail.com','cse',1);
+SQL> insert into college values(004,'mahesh',19,'mahesh@gmail.com','cse',1);
 
 1 row created.
 
@@ -124,16 +124,16 @@ SQL> select*from college;
 
 STUID     NAME         AGE        EMAIL              DEPT          DEPTID
 ------   ------       ----      ----------------     ------         -------
- 1       samhi         19        samhi@gmail.com      cse             1
+ 1       monish         19        monishmsm@gmail.com      cse             1
                      
 
- 2       grishma       20        grish@gmail.com      ece             2
+ 2       pramodh       20        pramodh@gmail.com      ece             2
                      
 
- 3       yamini        20        yamm@gmail.com       mech            3
+ 3       likith       20        likith@gmail.com       mech            3
                      
 
- 4       navi          19        navi@gmail.com       cse             1
+ 4       mahesh        19        mahesh@gmail.com       cse             1
   
         
 SQL> insert into college values(004,'navi',19,'navii@gmail.com','cse',4);
