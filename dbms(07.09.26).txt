@@ -1,4 +1,4 @@
-Enter user-name: A077@db2021
+Enter user-name: A228@db2021
 Enter password:
 
 Connected to:
@@ -72,11 +72,11 @@ SQL> select*from stu_marks;
 
      STUID STUNAME              DEPARTMENT      MARKS
 ---------- -------------------- ---------- ----------
-         1 jim                  CSE                98
-         2 julie                ECE                92
-         3 ethan                IT                 75
-         4 clara                CSE                67
-         5 samhi                AEROSPACE          99
+        1 monish                 cse             99
+         2 pramodh                 cse           89
+         3 prithi                 ece            78
+         4 likhit                mech            86
+         5 mahesh             eee                56
 
 TOTAL_STUDENTS
 --------------
@@ -145,7 +145,7 @@ SQL> select department,stuname,max(marks) as highest_marks from stu_marks group 
 
 DEPARTMENT STUNAME              HIGHEST_MARKS
 ---------- -------------------- -------------
-AEROSPACE  samhi                           99
+AEROSPACE  monish                       99
 ECE        julie                           92
 CSE        jim                             98
 CSE        clara                           67
